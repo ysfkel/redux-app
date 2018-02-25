@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import AutoAdDetailsContainer from './app/auto/placead/ad-details/ad-details.component';
+import AutoAdDetailsContainer from './app/auto/placead/ad-details/auto-ad-details.component';
 import AutoContainer from './app/auto/auto.container';
 import { Link } from 'react-router-dom';
 
