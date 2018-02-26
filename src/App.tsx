@@ -1,10 +1,8 @@
 import * as React from 'react';
 import './App.css';
-
 const logo = require('./logo.svg');
 import AppRoutes from './app.routes';
 import { BrowserRouter } from 'react-router-dom';
-
 class App extends React.Component {
   render() {
     return (
