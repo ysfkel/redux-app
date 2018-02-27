@@ -1,13 +1,9 @@
 import { EnthusiasmAction } from '../actions/app.actions';
 import { StoreState } from '../states/app.state';
 import { INCREMENT_ENTHUSIASM, DECREMENT_ENTHUSIASM } from '../constants/action-titles';
+import { INITIAL_STATE } from '../auto/placead/auto.reducer'
 
-const initState: StoreState = {
-  languageName: 'javascript',
-  enthusiasmLevel: 20
-};
-
-export const enthusiasm = ( state: StoreState = initState, action: EnthusiasmAction ): StoreState => {
+export const enthusiasm = ( state: StoreState = INITIAL_STATE, action: EnthusiasmAction ): StoreState => {
   console.log('action fire red');
   switch (action.type) {
        case INCREMENT_ENTHUSIASM:
