@@ -1,17 +1,24 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { StoreState } from './app/states/app.state';
-import { enthusiasm } from './app/reducers/app.reducer';
+import { StoreStateType } from './app/states/app.state';
 import { Reducer } from 'redux';
 import { autoReducer } from './app/auto/placead/auto.reducer';
 
-const rootReducer: Reducer<StoreState> = combineReducers ({
-    enthusiasm: enthusiasm,
-    autoReducer:autoReducer
-});
+export interface ReducersCombinedType {
+    [key: string]: Reducer<any>;
+    autoReducer: Reducer<StoreStateType>;
+}
 
-export default createStore<StoreState>(
+export const getReducers = (): ReducersCombinedType => {
+     return {
+        autoReducer: autoReducer
+    };
+};
+
+const rootReducer: Reducer<any> = combineReducers(getReducers());
+
+export default createStore<StoreStateType>(
     rootReducer,
     composeWithDevTools(applyMiddleware(thunk))
 );

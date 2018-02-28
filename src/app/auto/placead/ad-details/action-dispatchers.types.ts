@@ -1,5 +1,5 @@
-import { AutoAdDetailsType } from "./types";
+import { AutoAdDetailsType } from './types';
 
-export interface IDetailsDispatch{
-    updateDetails:(data:AutoAdDetailsType)=>any
+export interface DetailsDispatcherType {
+    updateDetails: (data: AutoAdDetailsType) => void;
 }

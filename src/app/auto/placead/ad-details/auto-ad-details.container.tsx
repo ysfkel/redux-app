@@ -1,21 +1,17 @@
-import { connect} from 'react-redux';
+import { connect } from 'react-redux';
 import AutoAdDetailsComponent from './auto-ad-details.component';
 import { AutoAdDetailsType } from './types';
-import { DetailsDispatch } from './action-dispatchers'
+import { DetailsDispatcher } from './action-dispatchers';
+import { ReducersCombinedType } from '../../../../store';
+//import { StoreStateType } from '../../../states/app.state';
+export const mapStateToProps = (state: any, props: AutoAdDetailsType) => {
+    
+    //let data = (state.autoReducer as StoreStateType);
+    //console.log('state--', state.autoReducer, data);
 
-export const mapStateToProps = ({ 
-title,
-mobile,
-location,
-description}: AutoAdDetailsType) => {
-    return {
-        title: '',
-        mobile:'',
-        location: '',
-        description:''
-    };
+    return  {...state.autoReducer};
 };
 
-export const mapDispatchToProps = DetailsDispatch
+export const mapDispatchToProps = DetailsDispatcher;
 
 export default connect(mapStateToProps, mapDispatchToProps )(AutoAdDetailsComponent);

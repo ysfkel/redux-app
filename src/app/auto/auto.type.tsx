@@ -1,6 +1,6 @@
 
 import { AutoAdDetailsType } from './placead/ad-details/types';
 
-export interface Auto extends AutoAdDetailsType {
+export interface AutoType extends AutoAdDetailsType {
     
 } 

@@ -1,11 +1,11 @@
-import { Dispatch } from "react-redux";
-import { IDetailsDispatch } from "./action-dispatchers.types";
-import * as actions from './action-creators'
-import { AutoAdDetailsType } from './types'
+import { Dispatch } from 'react-redux';
+import { DetailsDispatcherType } from './action-dispatchers.types';
+import * as actions from './action-creators';
+import { AutoAdDetailsType } from './types';
 
-export const DetailsDispatch = (dispatch: Dispatch<IDetailsDispatch>):IDetailsDispatch => {
+export const DetailsDispatcher = (dispatch: Dispatch<DetailsDispatcherType>): DetailsDispatcherType => {
     return {
-        updateDetails: (details:AutoAdDetailsType) => { 
+        updateDetails: (details: AutoAdDetailsType) => { 
             dispatch( actions.updateAutoDetailsAction(details));
        }
     };   
