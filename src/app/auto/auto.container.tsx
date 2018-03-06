@@ -27,8 +27,9 @@ class AutoContainer extends Component<Props, AutoContainerState> {
            <div>
                 <h1>hello</h1>
             <Button onClick={() => this.props.history.push( '/ad-details' )} > save </Button>
-            <li><Link to="/ad-details">books</Link></li>
-         <li><Link to="/main">main</Link></li>
+            <li><Link to="/ad-details">AD details</Link></li>
+            <li><Link to="/details">DETAILS</Link></li>
+            <li><Link to="/main">main</Link></li>
            </div>
         );
     }
