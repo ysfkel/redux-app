@@ -1,6 +1,6 @@
 
 export interface ImageType {
-      fileName:string;
+      fileName: string;
       main: number;
       size: number;
       type: string;
