@@ -4,7 +4,7 @@ import AutoAdDetailsContainer from './app/auto/placead/ad-details/auto-ad-detail
 import AutoDetailsContainer from './app/auto/placead/auto-details/auto-details.container';
 import AutoContainer from './app/auto/auto.container';
 import { Link } from 'react-router-dom';
-import FileUploader from './app/common/components/file-uploader/file-uploader.component';
+import MultipleFilesUploaderContainer from './app/common/components/file-uploader/multiple-file-uploader.container';
 const { Component } = React;
 export default class AppRoutes extends Component {
        
@@ -18,7 +18,7 @@ export default class AppRoutes extends Component {
         <Route exact={true} path={`/ad-details`} component={AutoAdDetailsContainer}/>
         <Route  path={`/details`} component={AutoDetailsContainer}/>
         <Route  path={`/main`} component={AutoContainer}/>
-        <Route  path={`/upload-files`} component={FileUploader} />
+        <Route  path={`/upload-files`} component={MultipleFilesUploaderContainer} />
        </Switch>
       </div>
       );

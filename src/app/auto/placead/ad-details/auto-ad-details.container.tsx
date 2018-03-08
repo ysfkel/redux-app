@@ -4,11 +4,12 @@ import { AutoAdDetailsType } from './types';
 import { DetailsDispatcher } from './action-dispatcher';
 import { AutoReducersCombinedType } from '../reducer';
 import { AutoReducerItemsType } from '../reducer';
+import { AppReducerItemsType } from '../../../reducers/app.reducer';
 
-export const mapStateToProps = (state: AutoReducersCombinedType, props: AutoAdDetailsType) => {
-    
-    let data = ((state.items as AutoReducerItemsType).adDetails  as AutoAdDetailsType);
-    console.log('--data', data, state);
+export const mapStateToProps = (state: AppReducerItemsType, props: AutoAdDetailsType) => {
+    console.log('--data', state);
+    const auto: AutoReducersCombinedType = state.autoReducers;
+    let data = (auto.items as AutoReducerItemsType).adDetails as AutoAdDetailsType;
    
     return  { 
             data: {

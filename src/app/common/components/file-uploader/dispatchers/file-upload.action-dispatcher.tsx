@@ -1,12 +1,25 @@
 import { Dispatch } from 'react-redux';
-import { FilesUploadedDispatcherType } from './file-upload.action-dispatcher.type';
-import * as actions from '../action-creators/files-to-upload.action-creator';
+import { FileUploadedDispatcherType, FilesToUploadDispatcherType } from './file-upload.action-dispatcher.type';
+import { ImageType } from '../types/image';
+import { fileUploadedActionCreator } from '../action-creators/file-uploaded.action-creator';
+import { filesToUploadActionCreator } from '../action-creators/files-to-upload.action-creator';
 import { BlobType } from '../types/blob-type';
 
-export const DetailsDispatcher = (dispatch: Dispatch<FilesUploadedDispatcherType>): FilesUploadedDispatcherType => {
+export const fileUploadedDispatcher = (dispatch: Dispatch<FileUploadedDispatcherType>): FileUploadedDispatcherType => {
     return {
-        updateUploadedFiles: (files: Array<BlobType>) => { 
-            dispatch( actions.filesToUploadActionCreator(files));
+        updateFilesUploaded: (file: ImageType) => { 
+            dispatch(fileUploadedActionCreator(file));
+       }
+    };   
+};
+
+export const filesToUploadDispatcher = (dispatch: Dispatch<FilesToUploadDispatcherType>): 
+FilesToUploadDispatcherType => {
+    
+    return {
+        updateFilesToUpload: (files: Array<BlobType>) => { 
+            console.log('---dispatcher hit,', files);
+            dispatch(filesToUploadActionCreator(files));
        }
     };   
 };

@@ -20,7 +20,7 @@ export default class AutoAdDetailsComponent extends
 
     handleTextChange = (event: any) => {
          const value = event.target.value;
-         console.log('event ', event, value.value);
+         console.log('event ', this.props);
          this.props.updateDetails({
              ...this.props.data,
             title: value,
