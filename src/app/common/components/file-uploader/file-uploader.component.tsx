@@ -1,7 +1,7 @@
 import * as React from 'react';
 import DropZone from 'react-dropzone';
 import axios from 'axios';
-import { BlobType } from '../../types/blob-type';
+import { BlobType } from './types/blob-type';
 interface Props {
 
 }

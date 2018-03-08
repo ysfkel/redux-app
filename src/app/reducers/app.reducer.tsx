@@ -1,11 +1,8 @@
-// import { EnthusiasmAction } from '../actions/app.actions';
-// import { StoreStateType } from '../states/app.state';
-// import { INITIAL_STATE } from '../auto/placead/auto.reducer';
+import { combineReducers } from 'redux';
+import { autoReducers } from '../auto/placead/reducer';
+import { Reducer } from 'redux';
 
-// export const enthusiasm = ( state: StoreStateType = INITIAL_STATE, action: EnthusiasmAction ): StoreStateType => {
-//   console.log('action fire red');
-//   switch (action.type) {
-//        default:
-//          return state;  
-//   }
-// };
+export const appReducer: Reducer<any> = combineReducers({
+    autoReducers
+});
+
