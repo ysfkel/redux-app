@@ -1,9 +1,10 @@
 import * as React from 'react';
 import DropZone from 'react-dropzone';
 import axios from 'axios';
-import { BlobType } from './types/blob-type';
+import { BlobType } from './types/blob.type';
 import { FilesToUploadDispatcherType } from './dispatchers/file-upload.action-dispatcher.type';
-import ImageItem from '../image-components/image-item/image-item.component';
+import ImageListComponent from '../image-components/image-list/image-list.component';
+import { BlobCollection } from './types/blob.collection';
 
 export interface FilesProps {
     data: Array<BlobType>;
@@ -21,20 +22,21 @@ Component<FilesProps & FilesToUploadDispatcherType, Array<BlobType>> {
     dispatchUpdateFilesToUpload = (files: BlobType[]) => {
 
         if (files) {
-            const filesToUpload = files.map((file: BlobType) => {
-                const blob: BlobType = {
-                    ...file,
-                    name: file.name,
-                    lastModified: file.lastModified,
-                    lastModifiedDate: file.lastModifiedDate,
-                    preview: file.preview,
-                    size: file.size,
-                    type: file.type
-                };
-                return blob;
-            });
+            const blobCollection = new BlobCollection(files);
+            // const filesToUpload = files.map((file: BlobType) => {
+            //     const blob: BlobType = {
+            //         ...file,
+            //         name: file.name,
+            //         lastModified: file.lastModified,
+            //         lastModifiedDate: file.lastModifiedDate,
+            //         preview: file.preview,
+            //         size: file.size,
+            //         type: file.type
+            //     };
+            //     return blob;
+            // });
 
-            this.props.updateFilesToUpload(filesToUpload);
+            this.props.updateFilesToUpload(blobCollection.Blobs);
         }
         
     }
@@ -63,20 +65,13 @@ Component<FilesProps & FilesToUploadDispatcherType, Array<BlobType>> {
     }
 
     render() {
-        const images = this.props.data.map((blob: BlobType, index: number) => {
-            return (
-                  <div key={index}>
-                    <ImageItem url={blob.preview}/>
-                  </div>);
-        });
+        console.log('--this.props.data', this.props.data);
         return(
             <div>
               <DropZone onDrop={this.onDrop}>
                   click to upload files
               </DropZone>
-              {
-                 images 
-              }
+              {<ImageListComponent data={this.props.data} />}
             </div>
         );
     }

@@ -1,6 +1,6 @@
 import { FileUploadStateType } from './state';
 import { AppReducerItemsType } from '../../../reducers/app.reducer';
-import { BlobType } from './types/blob-type';
+import { BlobType } from './types/blob.type';
 import MultipleFilesUploaderComponent, { FilesProps } from './multiple-file-uploader.component';
 import { connect } from 'react-redux';
 import { filesToUploadDispatcher } from './dispatchers/file-upload.action-dispatcher';
