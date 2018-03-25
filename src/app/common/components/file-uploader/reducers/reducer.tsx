@@ -16,7 +16,7 @@ export const fileUploadReducer = (state = INITIAL_STATE, action: FileActionType)
 
       return {
              ...state,
-             filesToUpload: [...action.payload]
+             filesToUpload: [...state.filesToUpload, ...action.payload]
        };
      }
 

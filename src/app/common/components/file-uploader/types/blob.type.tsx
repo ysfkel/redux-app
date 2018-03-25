@@ -6,4 +6,3 @@ export interface BlobType extends Blob {
     size: number;
     type: string;
 }
-

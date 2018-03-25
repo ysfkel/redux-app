@@ -1,5 +1,5 @@
-import { ImageType } from '../types/image';
-import { BlobType } from '../types/blob-type';
+import { ImageType } from '../types/image.type';
+import { BlobType } from '../types/blob.type';
 import * as actions from './action-titles';
 
 export interface FileUploadedActionCreatorType {

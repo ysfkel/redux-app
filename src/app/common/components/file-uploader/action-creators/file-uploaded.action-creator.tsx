@@ -1,6 +1,6 @@
 
 import * as actions from './action-titles';
-import { ImageType } from '../types/image';
+import { ImageType } from '../types/image.type';
 import { FileUploadedActionCreatorType } from './action.types';
 
 export const fileUploadedActionCreator = ( payload: ImageType ):

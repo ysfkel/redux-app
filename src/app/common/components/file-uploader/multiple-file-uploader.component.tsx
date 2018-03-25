@@ -5,13 +5,14 @@ import { BlobType } from './types/blob.type';
 import { FilesToUploadDispatcherType } from './dispatchers/file-upload.action-dispatcher.type';
 import ImageListComponent from '../image-components/image-list/image-list.component';
 import { BlobCollection } from './types/blob.collection';
+import  styles  from './styles';
 
 export interface FilesProps {
     data: Array<BlobType>;
 }
 
 const { Component } = React;
-export default class MultipleFileUploaderComponent extends 
+class MultipleFileUploaderComponent extends 
 Component<FilesProps & FilesToUploadDispatcherType, Array<BlobType>> {
 
     constructor(props: FilesProps & FilesToUploadDispatcherType) {
@@ -23,7 +24,14 @@ Component<FilesProps & FilesToUploadDispatcherType, Array<BlobType>> {
 
         if (files) {
             const blobCollection = new BlobCollection(files);
-            // const filesToUpload = files.map((file: BlobType) => {
+         
+            this.props.updateFilesToUpload(blobCollection.Blobs);
+        }
+        
+    }
+
+    onDrop =  (acceptedFiles: any) => {
+        const cloudName = 'dpd8g4u3c';   // const filesToUpload = files.map((file: BlobType) => {
             //     const blob: BlobType = {
             //         ...file,
             //         name: file.name,
@@ -35,14 +43,6 @@ Component<FilesProps & FilesToUploadDispatcherType, Array<BlobType>> {
             //     };
             //     return blob;
             // });
-
-            this.props.updateFilesToUpload(blobCollection.Blobs);
-        }
-        
-    }
-
-    onDrop =  (acceptedFiles: any) => {
-        const cloudName = 'dpd8g4u3c';
         this.dispatchUpdateFilesToUpload(acceptedFiles);
         const uploaders = acceptedFiles.map(async (file: BlobType) => {
             console.log('--acceptedFiles', file);
@@ -67,13 +67,17 @@ Component<FilesProps & FilesToUploadDispatcherType, Array<BlobType>> {
     render() {
         console.log('--this.props.data', this.props.data);
         return(
-            <div>
-              <DropZone onDrop={this.onDrop}>
-                  click to upload files
-              </DropZone>
-              {<ImageListComponent data={this.props.data} />}
+            <div style={styles.uploadContainer}>
+              <div style={styles.fileInput}>
+                <DropZone style={{height: '100px'}} onDrop={this.onDrop}>
+                    click to upload files
+                </DropZone>
+              </div>
+              {<ImageListComponent  data={this.props.data} />}
             </div>
         );
     }
 
 }
+
+export default MultipleFileUploaderComponent;
